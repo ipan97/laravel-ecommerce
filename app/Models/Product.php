@@ -16,4 +16,9 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Models\Image', 'product_images');
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }
