@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index');
 
-Auth::routes(['verify' => true]);
+Route::get('/products/{id}', 'ProductController@show')->name('products.show');
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+//Auth::routes(['verify' => true]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/images/{filename}');
 
 // Admin Routes
